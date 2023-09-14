@@ -54,4 +54,15 @@ module.exports = {
 
 ```
 
+### start script for webpack
+
+```json
+
+"scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  }
+  
+```
+
 🚀 Follow Me:
