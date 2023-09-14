@@ -3,9 +3,9 @@
 
 ---
 
-### Webpack configuration
+### Webpack and Babel configuration
 
-```javasript
+```javascript
 
 const path = require("node:path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -68,5 +68,5 @@ module.exports = {
 🚀 Follow Me:
 
 - [Github](https://github.com/TsigeWonwosen)
-- [Linkedin] (https://www.linkedin.com/in/wondwosen-shiferaw-tsige-84531992/)
+- [Linkedin](https://www.linkedin.com/in/wondwosen-shiferaw-tsige-84531992/)
 - [Portfolio](https://wondeshi.netlify.app/)

@@ -1,0 +1,28 @@
+h4{
+    text-align: center;
+    font-size: medium;
+    font-family: sans-serif;
+    margin:1rem 0;
+}
+.employee{
+    width:auto;
+    max-width: 70%;
+    max-height:40%;
+    padding: 10px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin:auto;
+}
+
+.employee .singleEmployee{
+    min-width: 320px;
+    min-height:150px;
+    padding:10px;
+    border-radius: 5px;
+    box-shadow: 1px 0.5px 0.5px black;
+    border: 0.5px solid rgb(232, 232, 245);
+    background-color: rgb(230, 232, 235);
+    margin-bottom: 10px;
+}

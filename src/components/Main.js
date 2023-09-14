@@ -2,21 +2,10 @@ import React ,{ useEffect, useState } from "react"
 import Task from "./Task"
 import AddItem from "./AddItem"
 
-const todo = [{
-    id: 1,
-    item: "React with Redux",
-    completed: true
-}, {
-    id: 2,
-    item: "Node with Express",
-    completed: false
-}, {
-    id: 3,
-    item: "Mongo with Mongoose",
-    completed: false
-    }]
 
-    const Todo = JSON.parse(localStorage.getItem("tasks")).length ?  JSON.parse(window.localStorage.getItem("tasks")) : todo
+
+const Todo = JSON.parse(localStorage.getItem("tasks")) || [];
+
 export default function Main() {
     const [todos, setTodos] = useState(Todo)
     const [task, setTask] = useState("")
