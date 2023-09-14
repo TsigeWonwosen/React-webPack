@@ -54,7 +54,7 @@ module.exports = {
 
 ```
 
-### start script for webpack
+### Startup script for webpack
 
 ```json
 
@@ -62,7 +62,11 @@ module.exports = {
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production"
   }
-  
+
 ```
 
 🚀 Follow Me:
+
+- [Github](https://github.com/TsigeWonwosen)
+- [Linkedin] (https://www.linkedin.com/in/wondwosen-shiferaw-tsige-84531992/)
+- [Portfolio](https://wondeshi.netlify.app/)
