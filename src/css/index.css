@@ -40,7 +40,7 @@ span label{
   padding-left: 10px;
 }
 
-main item{
+.item{
   width: 100%;
   display: flex;
   justify-content:space-between;
