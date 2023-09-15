@@ -1,12 +1,17 @@
-body {
-  font-family: "Open Sans";
-  font-family: Verdana, sans-serif;
-  font-size: 15px;
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600;700&display=swap');
+  body {
+  font-family: 'Oswald', sans-serif;
   line-height: 1.5;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto",sans-serif;
+}
+h3 {
+  font-size: 1rem;
+  font-style: italic;
+  color: rgb(32, 28, 28);
+  text-align: center;
 }
 
 .app{
@@ -15,27 +20,30 @@ flex-direction: column;
 min-height: 100vh;
 
 }
-h3 {
-  font-size: 15px;
-  font-style: italic;
-  color: rgb(32, 28, 28);
-}
 
 main{
   height: 100%;
-  width: 100%;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  flex-grow: 1;
 }
 
 .task{
+  max-width: 90%;
+  margin: auto;
+  flex-grow: 1;
   width: 40%;
   height: 80%;
   max-width: 400px;
 }
 
+.admin ,.contact,.about ,.error{
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
 span label{
   padding-left: 10px;
 }
@@ -78,10 +86,11 @@ ul {
   padding-left: 10px;
 }
 
-li {
+a {
   padding-left: 10px;
   text-decoration: none;
   list-style-type: none;
+  color: antiquewhite;
 }
 
 footer{
