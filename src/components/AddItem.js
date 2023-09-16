@@ -1,6 +1,8 @@
-import React,{useRef} from 'react'
+import React, { useRef,useContext } from 'react'
+import Employee from '../context/EmployeeContext'
 
-function AddItem({ handleChange, addTask, task }) {
+function AddItem( ) {
+  const {addTask,handleChange,task} = useContext(Employee)
     const inputRef = useRef()
   return (
     <form onSubmit = {addTask} >

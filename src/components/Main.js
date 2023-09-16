@@ -1,8 +1,7 @@
 import React ,{ useEffect, useState } from "react"
 import Task from "./Task"
 import AddItem from "./AddItem"
-
-
+import EmployeeContext from "../context/EmployeeContext";
 
 const Todo = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -15,7 +14,7 @@ export default function Main() {
         setTodos(newTodo)
         }
     
-    const onChange = (id) => {
+    const handleToggle = (id) => {
 
         const updateTodos = todos.map(todo => todo.id === id ? {...todo,completed: !todo.completed} : todo) 
         setTodos(updateTodos)
@@ -42,15 +41,18 @@ export default function Main() {
         localStorage.setItem("tasks",JSON.stringify(todos))
     },[todos])
     return (
-        <div className ="task">
+        <div className="task">
+            <EmployeeContext.Provider value = {{todos,handleChange,addTask,handleToggle,handleClick}}>
+
             <h3>Tasks</h3>
-            <AddItem handleChange={handleChange} addTask={ addTask} task={task} />
+            <AddItem  />
             
             {todos?.length ? todos.map(item =>
-                <Task item={item} key={item.id} onChange={onChange} handleClick={ handleClick} />
-          
-             ):<h2>Task is empty.</h2>
+                <Task key={item.id} item={item} />
+                
+                ):<h2>Task is empty.</h2>
             }
+            </EmployeeContext.Provider>
          </div>
      )
 }
