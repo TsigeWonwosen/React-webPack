@@ -1,10 +1,13 @@
 import React from 'react'
 import Main from '../Main'
+import { TasksContextProvider } from '../../context/TasksContextProvider'
 
 function Home(props) {
   return (
     <>
-      <Main />
+      <TasksContextProvider>
+        <Main />
+      </TasksContextProvider>
     </>
   )
 }

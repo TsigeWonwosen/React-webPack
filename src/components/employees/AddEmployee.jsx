@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext} from 'react'
+import EmployeeContext from '../../context/EmployeeContextProvider'
 
-function AddEmployee({handleChange, handleSubmit,info,isEdit}) {
+function AddEmployee() {
     
+  const { handleChange, handleAdd, handleEditSubmit, info, isEdit } = useContext(EmployeeContext)
+  
+  const handleSubmit = (e) => {
+     e.preventDefault()
+  }
 
+  
   return (
       <form onSubmit={handleSubmit} className="addEmployee">
               
@@ -26,8 +33,8 @@ function AddEmployee({handleChange, handleSubmit,info,isEdit}) {
           <input name='email' placeholder='Email ..' type = "text" onChange={handleChange} value={info.email}/>
           </div>
 
-          <button type='submit' className='add'  disabled = {!info.name || !info.email}>{isEdit ? "Edit": "Add"}</button>
-
+      {isEdit && <button type='button' onClick={ () => handleEditSubmit(info._id,info)} className='add' disabled={!info.name || !info.email}>Edit Employee</button>}
+      {!isEdit && <button type='button' onClick={ () => handleAdd(info)}  className='add' disabled={!info.name || !info.email}>Add Employee</button>}
     </form>
   )
 }

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import EmployeeContext from '../context/EmployeeContext'
+import TasksContext from '../context/TasksContextProvider'
 
 
 export default function Task({item}) {
-      const {handleClick,handleToggle} = useContext(EmployeeContext)
+      const {handleClick,handleToggle} = useContext(TasksContext)
   return (
     <section className='item'>
           <span>

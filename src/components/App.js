@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import LayOut from "./pages/LayOut";
 import Posts from "./pages/post/Posts";
 import SinglePost from "./pages/post/SinglePost";
+
 export default function App() {
   return (
     <div className="app">
