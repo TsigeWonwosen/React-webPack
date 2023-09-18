@@ -8,7 +8,7 @@ export default function Main() {
     return (
         <div className="task">
             <h3>Tasks</h3>
-            <AddItem  />
+           <AddItem  />
             
             {todos && todos?.length ? todos.map(item =>
                 <Task key={item.id} item={item} />

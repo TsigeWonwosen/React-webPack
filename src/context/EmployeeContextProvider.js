@@ -29,13 +29,13 @@ export const EmployeeContextProvider = ({ children }) => {
     setEmployees(updatedEmployees);
     }
 
-    const handleAdd = (info) => {
+    const handleAdd = async (info) => {
        
         if (info.address && info.name && info.address && info.age) {
-            createEmployee(info)
-            const newEmployee = [...employees, info]
+            const employeeAdded = await createEmployee(info)
+            const newEmployee = [...employees, employeeAdded]
             setEmployees(newEmployee)
-            setInfo({name:"",age:"",address:"",email:""})
+            setInfo({_id:"",name:"",age:"",address:"",email:""})
         } else {
             console.log("user info required.")
         }
@@ -43,8 +43,8 @@ export const EmployeeContextProvider = ({ children }) => {
     }
     const handleEdit = (id) => {
         setIsEdit(true)
-        const editUser = employees.filter((e) => e._id === id);
-        setInfo(editUser[0])
+        const editUser = employees.find(employee => employee._id === id);
+        setInfo(editUser)
     }
     const handleEditSubmit = (id,info) => {
         updateEmployee(id, info)
@@ -54,7 +54,8 @@ export const EmployeeContextProvider = ({ children }) => {
         setIsEdit(false)
     }
     
-    return (<EmployeeContext.Provider value={{employees,setEmployees,isEdit,setIsEdit,info,setInfo,isLoading,isError , handleDelete,handleEdit,handleEditSubmit,handleAdd,handleChange}}>
+    return (<EmployeeContext.Provider
+        value={{ employees, setEmployees, isEdit, setIsEdit, info, setInfo, isLoading, isError, handleDelete, handleEdit, handleEditSubmit, handleAdd,handleChange}}>
         {children}
     </EmployeeContext.Provider >)
 }

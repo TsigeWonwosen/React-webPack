@@ -1,13 +1,16 @@
 import axios from 'axios';
 const URL = `http://localhost:5000/users`
 
-export const createEmployee = (info) => {
-    axios.post(URL, info)
-        .then((response) => {
-        // setEmployees([...employees, response.data]);
-        // setName('');
-      })
-      .catch((error) => console.error('Error creating employee', error));
+export const createEmployee = async (info) => {
+    try {
+      const response = await axios.post(URL, info);
+      return response.data
+      
+    } catch (error) {
+      
+      console.error('Error creating employee', error);
+    }
+          
   };
 
 export const updateEmployee = async (id, updateInfo) => {
