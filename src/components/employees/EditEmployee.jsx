@@ -29,7 +29,7 @@ function EditEmployee() {
     
   return (
     <>
-    <h4>Edit Employee : {id} </h4>
+    <h4>Edit Employee  </h4>
 
      <form onSubmit={handleSubmit} className="addEmployee">
               
