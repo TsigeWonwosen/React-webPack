@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+// import { HashRouter as Router BrowserRouter } from 'react-router-dom';
 
 import About from './pages/About'
 import Home from './pages/Home'
@@ -12,6 +13,8 @@ import SinglePost from "./pages/post/SinglePost";
 import EditEmployee from "./employees/EditEmployee";
 import { EmployeeContextProvider } from "../context/EmployeeContextProvider";
 import EmployeeHome from "./employees/EmployeeHome";
+import Login from "./LoginAndRegister/Login";
+import Register from "./LoginAndRegister/Register";
 
 export default function App() {
   return (
@@ -25,10 +28,13 @@ export default function App() {
               <Route path="posts" >
                 <Route index element={<Posts />} />
                 <Route path=":id" element={<SinglePost />} />
-            </Route>
-            <Route path="contact" element={<Contact />} />
+              </Route>
+              <Route path="contact" element={<Contact />} />
               <Route path="/admin/" element={<EmployeeHome />}/>
               <Route path="/admin/:id" element={<EditEmployee />} />
+              <Route path="login" element={<Login />} />
+              <Route path="signup" element={<Register />} />
+
               <Route path="*" element={<Error/>} />
            </Route>
       </Routes>

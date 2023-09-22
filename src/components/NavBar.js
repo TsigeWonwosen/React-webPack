@@ -12,6 +12,8 @@ export default function NavBar() {
           <NavLink to='/about'>About</NavLink>
           <NavLink to='/admin'>Admin</NavLink>
           <NavLink to='/contact'>Contact</NavLink>
+          <NavLink to='/login'>Login</NavLink>
+          <NavLink to='/signup'>Register</NavLink>
         </ul>
       </nav>
     </div>
