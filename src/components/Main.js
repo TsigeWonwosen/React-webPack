@@ -1,10 +1,10 @@
-import React ,{useContext} from "react"
+import React from "react"
 import Task from "./Task"
 import AddItem from "./AddItem"
-import TasksContext from "../context/TasksContextProvider"
+import {useTaskContext} from "../context/TasksContextProvider"
 
 export default function Main() {
-    const {todos} = useContext(TasksContext)
+    const {todos} = useTaskContext()
     return (
         <div className="task">
             <h3>Tasks</h3>

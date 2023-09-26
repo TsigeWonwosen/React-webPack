@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Input from './Input'
 
 function Login() {
@@ -52,7 +52,8 @@ function Login() {
               {inputs.map(input => <Input key={input.id} {...input}
                   value={values[input.name]} handleChange={handleChange} />)}
              
-             <button type='submit'>Login</button>
+              <button type='submit'>Login</button>
+              <div className='redirect'>Don't have an account ?<Link to ="/signup">Register</Link></div>
           </form>
           
       </section> 

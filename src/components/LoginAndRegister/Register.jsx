@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import Input from './Input';
+import { Link } from 'react-router-dom';
 
 function Register() {
    const [values, setValues] = useState({
-     username: "",
-     email:"",
-    password: "",
-    confirmPassword: "",
-    birthday:""
-})
+      username: "",
+      email:"",
+      password: "",
+      confirmPassword: "",
+      birthday:""
+   })
+  
     const inputs = [{id: 1,
       name: "username",
       type: "text",
@@ -22,11 +24,12 @@ function Register() {
     {
       id: 2,
       name: "email",
-      type: "email",
+      type: "text",
       placeholder: "Email",
       errorMessage: "It should be a valid email address!",
       label: "Email",
-      pattern: "^[a-zA-Z0-9]+@[a-zA-Z\.-]+\.[a-zA-Z]{2,}$",
+      pattern: "^[A-Za-z0-9]+@[A-Za-z-_]+[\.]+[a-zA-Z]{2,}$",
+      //^[A-Za-z0-9]+@[A-Za-z-_]+\.[a-zA-Z]{2,}$  ^[a-zA-Z0-9]+@[a-zA-Z\.-]+\.[a-zA-Z]{2,}
       required: true,
     },
     {
@@ -73,7 +76,8 @@ function Register() {
           <h4>Register</h4>
               {inputs.map(input => <Input key={input.id} {...input}
               value={values[input.name]}    handleChange={handleChange} />)}
-             <button type='submit'>Register</button>
+        <button type='submit'>Register</button>
+        <div className='redirect'>Already have an account ? <Link to="/login">Login</Link></div>
           </form>
           
       </section> 

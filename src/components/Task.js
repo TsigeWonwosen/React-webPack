@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import TasksContext from '../context/TasksContextProvider'
+import React  from 'react'
+import {useTaskContext} from '../context/TasksContextProvider'
 
 
 export default function Task({item}) {
-      const {handleClick,handleToggle} = useContext(TasksContext)
+      const {handleClick,handleToggle} = useTaskContext()
   return (
     <section className='item'>
           <span>

@@ -25,6 +25,19 @@ export const updateEmployee = async (id, updateInfo) => {
   }
   };
 
+  export const Employee = async (id) => {
+  const updateURL = `${URL}/${id}`;
+  try {
+    
+    const response = await axios.get(updateURL);
+    return response;
+   
+  }
+  catch (error) {
+  console.error('Error: employee Id is not found.', error);
+  }
+  };
+
 export const deleteEmployee = (id) => {
       const deleteURL = `${URL}/${id}`
     axios.delete(deleteURL)

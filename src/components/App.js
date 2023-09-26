@@ -15,30 +15,39 @@ import { EmployeeContextProvider } from "../context/EmployeeContextProvider";
 import EmployeeHome from "./employees/EmployeeHome";
 import Login from "./LoginAndRegister/Login";
 import Register from "./LoginAndRegister/Register";
+import EmployeeInfo from "./employees/EmployeeInfo";
+import AuthProvider from "../context/AuthProvider";
+import RequireAuth from "./employees/RequireAuth";
 
 export default function App() {
   return (
     <div className="app">
       <EmployeeContextProvider>
-      <Router>
-        <Routes>
-           <Route path="/" element={<LayOut />}>
-              <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-              <Route path="posts" >
-                <Route index element={<Posts />} />
-                <Route path=":id" element={<SinglePost />} />
-              </Route>
-              <Route path="contact" element={<Contact />} />
-              <Route path="/admin/" element={<EmployeeHome />}/>
-              <Route path="/admin/:id" element={<EditEmployee />} />
-              <Route path="login" element={<Login />} />
-              <Route path="signup" element={<Register />} />
+        <AuthProvider>
+          <Router>
+            <Routes>
+                <Route path="/" element={<LayOut />}>
+                  <Route index element={<Home />} />
+                <Route path="about" element={<About />} />
+                  <Route path="posts" >
+                    <Route index element={<Posts />} />
+                    <Route path=":id" element={<SinglePost />} />
+                  </Route>
+                <Route path="contact" element={<Contact />} />
+               
+                <Route element={<RequireAuth />}>
+                  <Route path="/admin/" element={<EmployeeHome />}/>
+                  <Route path="/admin/:id" element={<EditEmployee />} />
+                  <Route path="/admin/single/:id" element={<EmployeeInfo />} />
+                </Route>
+                <Route path="login" element={<Login />} />
+                <Route path="signup" element={<Register />} />
 
-              <Route path="*" element={<Error/>} />
-           </Route>
-      </Routes>
-      </Router>
+                <Route path="*" element={<Error/>} />
+                </Route>
+          </Routes>
+          </Router>
+        </AuthProvider>
     </EmployeeContextProvider>
     </div>
   );

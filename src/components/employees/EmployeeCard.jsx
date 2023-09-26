@@ -13,6 +13,7 @@ function EmployeeCard({employee}) {
         <p>{employee.address}</p>
         <button className = "add" onClick={() => {handleDelete(employee._id)}}> Delete </button>
       <Link to={`/admin/${employee._id}`} > <button className='add'>Edit</button> </Link>
+      <Link to={`/admin/single/${employee._id}`} > <button className='add'>See More</button> </Link>
     </section>
   )
 }

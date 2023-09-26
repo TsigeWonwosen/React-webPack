@@ -1,6 +1,8 @@
-import React ,{ createContext ,useState,useEffect} from "react";
+import React ,{ createContext ,useContext,useState,useEffect} from "react";
 
 const TasksContext = createContext();
+export const useTaskContext = () => useContext(TasksContext)
+
 const Todo = JSON.parse(localStorage.getItem("tasks")) || [];
 
 export const TasksContextProvider = ({ children }) => {
