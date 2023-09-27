@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import Input from './Input'
+import useAuth from './../../hooks/useAuth'
 
 function Login() {
+    const {setAuth} = useAuth()
 
     const [values, setValues] = useState({
         userName: "",
@@ -39,10 +41,11 @@ function Login() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
+        setAuth({user:"wonde",password:values.password})
         setValues({ userName: "",
             password: ""
         })
-        navigate(-1);
+        navigate('/admin');
     }
 
   return (
