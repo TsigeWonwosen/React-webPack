@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import Input from './Input'
 import useAuth from './../../hooks/useAuth'
+import axios from 'axios'
 
 function Login() {
     const {setAuth} = useAuth()
@@ -39,13 +40,23 @@ function Login() {
         setValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
     }
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setAuth({user:"wonde",password:values.password})
-        setValues({ userName: "",
-            password: ""
-        })
-        navigate('/admin');
+        try {
+
+            // http://localhost:5000/employees/login
+           const response = await axios.post('http://localhost:5000/employees/login', { email: values.userName, password: values.password })
+            
+            console.log(response.data)
+            setAuth(response.data.foundEmp)
+            setValues({ userName: "",
+                password: ""
+            })
+            navigate('/admin');
+            
+        } catch (error) {
+             console.error('Axios Error:', error);
+        }
     }
 
   return (

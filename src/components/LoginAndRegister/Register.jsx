@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Input from './Input';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 function Register() {
    const [values, setValues] = useState({
@@ -10,6 +11,10 @@ function Register() {
       confirmPassword: "",
       birthday:""
    })
+  
+  const [error, setError] = useState('')
+    const navigate = useNavigate()
+  
   
     const inputs = [{id: 1,
       name: "username",
@@ -62,18 +67,38 @@ function Register() {
     }
     ]
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(values)
-    }
-
-    const handleChange = (e) => {
+  const handleChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
     }
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        
+        const response = await axios.post('http://localhost:5000/employees',
+          { name : values.username, email: values.email, password: values.password,birthDay : values.birthday })
+        if (response) {
+          navigate('/admin');
+          setValues({
+            username: "",
+            email:"",
+            password: "",
+            confirmPassword: "",
+            birthday:""
+          })
+        }
+        if(!response.ok) throw Error(response.message)
+      } catch (error) {
+        setError(error.message);
+        console.error(error)
+      }
+    }
+
+    
   return (
       <section className='container'>
           <form onSubmit={handleSubmit} >
-          <h4>Register</h4>
+        <h4>Register</h4>
+        <span>{ error && error}</span>
               {inputs.map(input => <Input key={input.id} {...input}
               value={values[input.name]}    handleChange={handleChange} />)}
         <button type='submit'>Register</button>

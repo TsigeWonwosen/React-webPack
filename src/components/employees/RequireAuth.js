@@ -6,7 +6,7 @@ const RequireAuth = () => {
     const {auth} = useAuth()
     const location = useLocation()
     console.log("user : " + JSON.stringify(auth))
-    return (auth?.user?<Outlet/>:<Navigate to='login' state = {{from :location}} replace/> )
+    return (auth?.roles?<Outlet/>:<Navigate to='login' state = {{from :location}} replace/> )
 }
 
 export default RequireAuth;
