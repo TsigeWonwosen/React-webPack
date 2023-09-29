@@ -1,7 +1,18 @@
-import React from "react";
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { NavLink ,useNavigate} from 'react-router-dom';
+import useAuth from "../hooks/useAuth";
 
 export default function NavBar() {
+  const [toggle, setToggle] = useState(false)
+
+  const navigate = useNavigate()
+  const { setAuth } = useAuth() 
+  
+  const handleToggle = () => {
+    setToggle(prevToggle => !prevToggle)
+    toggle ? navigate('/login') : setAuth({})
+  }
+  console.log("Toggle : " + toggle)
   return (
     <div className="nav">
       <div className="logo">Wonde</div>
@@ -12,7 +23,7 @@ export default function NavBar() {
           <NavLink to='/about'>About</NavLink>
           <NavLink to='/admin'>Admin</NavLink>
           <NavLink to='/contact'>Contact</NavLink>
-          <NavLink to='/login'>Login</NavLink>
+          <button onClick={handleToggle}>{toggle ? "LogIn" : "LogOut"}</button>
           <NavLink to='/signup'>Register</NavLink>
         </ul>
       </nav>

@@ -18,6 +18,13 @@ import Register from "./LoginAndRegister/Register";
 import EmployeeInfo from "./employees/EmployeeInfo";
 import AuthProvider from "../context/AuthProvider";
 import RequireAuth from "./employees/RequireAuth";
+import Unauthorized from "./employees/Unauthorized";
+
+const ROLES = {
+  'User': 2001,
+  'Editor': 3001,
+  'Admin': 4001
+}
 
 export default function App() {
   return (
@@ -34,14 +41,17 @@ export default function App() {
                     <Route path=":id" element={<SinglePost />} />
                   </Route>
                 <Route path="contact" element={<Contact />} />
+                <Route path="unauthorized" element={<Unauthorized />} />
                
-                <Route element={<RequireAuth />}>
+                <Route element={<RequireAuth allowedRoles={[ROLES.Admin,ROLES.Editor]}/>}>
                   <Route path="/admin/" element={<EmployeeHome />}/>
                   <Route path="/admin/:id" element={<EditEmployee />} />
                   <Route path="/admin/single/:id" element={<EmployeeInfo />} />
                 </Route>
                 <Route path="login" element={<Login />} />
-                <Route path="signup" element={<Register />} />
+                <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+                   <Route path="signup" element={<Register />} />
+                </Route>
 
                 <Route path="*" element={<Error/>} />
                 </Route>

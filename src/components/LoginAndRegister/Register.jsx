@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Input from './Input';
 import { Link ,useNavigate} from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../api/axios'
+
 
 function Register() {
    const [values, setValues] = useState({
@@ -74,7 +75,7 @@ function Register() {
       e.preventDefault();
       try {
         
-        const response = await axios.post('http://localhost:5000/employees',
+        const response = await axios.post('/employees',
           { name : values.username, email: values.email, password: values.password,birthDay : values.birthday })
         if (response) {
           navigate('/admin');
