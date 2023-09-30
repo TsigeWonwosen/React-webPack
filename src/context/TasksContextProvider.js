@@ -1,13 +1,13 @@
-import React ,{ createContext ,useContext,useState,useEffect} from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const TasksContext = createContext();
 export const useTaskContext = () => useContext(TasksContext)
 
-const Todo = JSON.parse(localStorage.getItem("tasks")) || [];
 
 export const TasksContextProvider = ({ children }) => {
     
-    const [todos, setTodos] = useState(Todo)
+    const [todos, setTodos] = useLocalStorage("tasks",[])
     const [task, setTask] = useState("")
 
     const handleClick = (id) => {
