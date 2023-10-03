@@ -1,7 +1,8 @@
 import React from "react"
 import Task from "./Task"
 import AddItem from "./AddItem"
-import {useTaskContext} from "../context/TasksContextProvider"
+import { useTaskContext } from '../../context/TasksContextProvider'
+
 
 export default function Main() {
     const {todos} = useTaskContext()

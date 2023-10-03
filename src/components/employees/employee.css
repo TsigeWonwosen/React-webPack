@@ -5,28 +5,63 @@ h4{
     margin:1rem 0;
 }
 .employee{
-    width:auto;
-    max-width: 70%;
+    min-width: 90%;
     max-height:40%;
-    padding: 10px 10%;
+    padding: 10px 3%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin:auto;
+    margin-bottom: 2rem;
 }
 
 .employee .singleEmployee{
-    min-width: 320px;
-    min-height:150px;
-    padding:10px;
-    border-radius: 5px;
-    box-shadow: 1px 0.5px 0.5px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    min-width: 100%;
+    padding:3px 1rem;
+    border-radius: 3px;
+    color: #928c8c;
+    box-shadow: 0.2px 0.5px 0.5px rgb(158, 157, 157);
     border: 0.5px solid rgb(232, 232, 245);
-    background-color: rgb(230, 232, 235);
-    margin-bottom: 10px;
+    background-color: rgb(247, 251, 252);
+    margin-bottom: 13px;
 }
 
+.employee .singleEmployee .empInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    
+ }
+
+ .employee .singleEmployee .empInfo span{
+    
+    padding-top: 3px;
+
+    }
+
+.employee .singleEmployee .empInfo span h5{
+font-size: 14px;
+font-weight: 600;
+
+}
+
+.employee .singleEmployee .empInfo span p{
+font-size: 12px;
+font-weight: 400;
+color: #928c8c;
+
+}
+ .employee .singleEmployee .empInfo span h5,p{
+    margin: 0;
+    padding: 0;
+   
+ }
 .addEmployee{
 display: flex;
 flex-direction: column;
@@ -58,19 +93,27 @@ margin: 10px auto;
 
 }
 
-.add{
-    color: rgb(247, 238, 238);
-    padding: 5px;
-    width:90%;
+.employee .add{
+    padding: 5px 10px;
+    width:auto;
     margin: 10px auto;
-    background-color: rgb(47, 80, 53);
+    color: rgb(75, 216, 101);
+    background-color:  rgb(242, 247, 248);
+    border:1px solid  rgb(75, 216, 101);
+    transition: background-color 0.5s;
+    
 }
 
-button:disabled , button[disabled]{
+.employee .add:hover{
+    background-color: rgb(75, 216, 101);
+    color: rgb(242, 247, 248);
+    border:1px solid transparent;
+}
+/* button:disabled , button[disabled]{
     border: 1px solid #999999;
     background-color: #cccccc;
     color: #666666;
-}
+} */
 
 
 .flexGrow {

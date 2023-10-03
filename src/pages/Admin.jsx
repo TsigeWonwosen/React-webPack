@@ -1,5 +1,5 @@
 import React from 'react'
-import Employee from '../employees/Employee'
+import Employee from './components/employees/Employee'
 
 function Admin() {
   return (

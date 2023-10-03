@@ -7,9 +7,9 @@ function EmployeeLists() {
 
   return (
       <>
-        {isError && <h3 style={{ color: 'red' }}> Error Fetching Employees </h3> };
-          {!isError && isLoading && <h3>Loading ...</h3>}
-      {!isError && !isLoading && employees.map(employee => <EmployeeCard key={employee._id} employee={employee } />)         
+        {isError && <h3 style={{ color: 'red' }}> Error Fetching Employees </h3> }
+        {!isError && isLoading && <h3>Loading ...</h3>}
+       {!isError && !isLoading && employees.map(employee => <EmployeeCard key={employee._id} employee={employee } />)         
         }
     
       </>

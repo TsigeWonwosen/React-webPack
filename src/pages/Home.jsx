@@ -1,6 +1,6 @@
 import React from 'react'
-import Main from '../Main'
-import { TasksContextProvider } from '../../context/TasksContextProvider'
+import Main from '../components/post/Main'
+import { TasksContextProvider } from '../context/TasksContextProvider'
 
 function Home(props) {
   return (

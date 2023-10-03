@@ -1,24 +1,23 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
-// import { HashRouter as Router BrowserRouter } from 'react-router-dom';
+
+import { EmployeeContextProvider } from "./context/EmployeeContextProvider";
+import AuthProvider from "./context/AuthProvider";
+import RequireAuth from "./components/employees/RequireAuth";
 
 import About from './pages/About'
 import Home from './pages/Home'
-import Main from './pages/Admin'
 import Error from './pages/Error'
 import Contact from "./pages/Contact";
-import LayOut from "./pages/LayOut";
-import Posts from "./pages/post/Posts";
-import SinglePost from "./pages/post/SinglePost";
-import EditEmployee from "./employees/EditEmployee";
-import { EmployeeContextProvider } from "../context/EmployeeContextProvider";
-import EmployeeHome from "./employees/EmployeeHome";
-import Login from "./LoginAndRegister/Login";
-import Register from "./LoginAndRegister/Register";
-import EmployeeInfo from "./employees/EmployeeInfo";
-import AuthProvider from "../context/AuthProvider";
-import RequireAuth from "./employees/RequireAuth";
-import Unauthorized from "./employees/Unauthorized";
+import LayOut from "./components/LayOut";
+import Posts from "./components/post/Posts";
+import SinglePost from "./components/post/SinglePost";
+import EditEmployee from "./components/employees/EditEmployee";
+import Employee from "./components/employees/Employee";
+import Login from "./components/LoginAndRegister/Login";
+import Register from "./components/LoginAndRegister/Register";
+import EmployeeInfo from "./components/employees/EmployeeInfo";
+import Unauthorized from "./components/employees/Unauthorized";
 
 const ROLES = {
   'User': 2001,
@@ -44,7 +43,7 @@ export default function App() {
                 <Route path="unauthorized" element={<Unauthorized />} />
                
                 <Route element={<RequireAuth allowedRoles={[ROLES.Admin,ROLES.Editor]}/>}>
-                  <Route path="/admin/" element={<EmployeeHome />}/>
+                  <Route path="/admin/" element={<Employee />}/>
                   <Route path="/admin/:id" element={<EditEmployee />} />
                   <Route path="/admin/single/:id" element={<EmployeeInfo />} />
                 </Route>

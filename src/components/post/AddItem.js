@@ -1,8 +1,9 @@
-import React, { useRef,useContext } from 'react'
-import TasksContext from '../context/TasksContextProvider'
+import React, { useRef} from 'react'
+import { useTaskContext } from '../../context/TasksContextProvider'
+
 
 function AddItem( ) {
-  const {addTask,handleChange,task} = useContext(TasksContext)
+  const {addTask,handleChange,task} = useTaskContext()
     const inputRef = useRef()
   return (
     <form onSubmit = {addTask} >
