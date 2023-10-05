@@ -1,16 +1,19 @@
-import React, { useContext} from 'react'
+import React, { useContext, useRef} from 'react'
 import EmployeeContext from '../../context/EmployeeContextProvider'
+import useRefreshToken from '../../hooks/useRefreshToken'
 
 function AddEmployee() {
-    
   const { handleChange, handleAdd, info } = useContext(EmployeeContext)
+  const handleRefresh = useRefreshToken();
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    
     handleAdd(info)
   }
 
-  return (
+  return (<>
+        <button className="add" onClick = {()=> handleRefresh()}>Refresh</button>
       <form onSubmit={handleSubmit} className="addEmployee">
               
           <div className='input'>
@@ -35,6 +38,7 @@ function AddEmployee() {
 
       <button type='submit'  className='add' disabled={!info.name || !info.email}>Add Employee</button>
     </form>
+    </>
   )
 }
 

@@ -23,5 +23,26 @@ function Input(props) {
       </section>
   )
 }
+export const InputElements = [{
+        id: 1,
+        name: "userName",
+        type: "text",
+        placeholder: "User Name",
+        label: "User Name",
+        required: true,
+        errorMessage: "User Name is required",
+        required:true
 
+    },
+    {
+        id: 2,
+        name: "password",
+        type: "password",
+        placeholder: "Password",
+        label: "Password",
+        required: true,
+        errorMessage: "Password is required",
+        required:true
+        }
+    ] 
 export default Input

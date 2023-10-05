@@ -1,7 +1,7 @@
 import React,{ createContext ,useState,useEffect} from "react";
 import { createEmployee, deleteEmployee, updateEmployee } from '../components/employees/apiRequestEmployee'
 import useFetch from '../hooks/useFetch'
-const URL = 'http://localhost:5000/users'
+const URL = '/users'
 
 const EmployeeContext = createContext();
 

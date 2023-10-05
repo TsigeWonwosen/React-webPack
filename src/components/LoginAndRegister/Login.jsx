@@ -1,6 +1,6 @@
 import React, { useState ,useEffect} from 'react'
 import {Link, useLocation, useNavigate} from 'react-router-dom'
-import Input from './Input'
+import Input, { InputElements } from './Input'
 import useAuth from './../../hooks/useAuth'
 import axios from '../../api/axios'
 
@@ -15,29 +15,7 @@ function Login() {
     const navigate = useNavigate()
      const location = useLocation();
      const from = location.state?.from?.pathname || "/";
-
-    const inputs = [{
-        id: 1,
-        name: "userName",
-        type: "text",
-        placeholder: "User Name",
-        label: "User Name",
-        required: true,
-        errorMessage: "User Name is required",
-        required:true
-
-    },
-    {
-        id: 2,
-        name: "password",
-        type: "password",
-        placeholder: "Password",
-        label: "Password",
-        required: true,
-        errorMessage: "Password is required",
-        required:true
-        }
-    ]
+   
     const handleChange = (e) => {
         setValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
     }
@@ -50,7 +28,6 @@ function Login() {
         e.preventDefault();
         try {
             const response = await axios.post('/employees/login', { email: values.userName, password: values.password });
-            console.log("Roles : " + response?.data.roles)
             const accessToken = response.data.accessToken;
             const roles = response.data.roles;
             setAuth({accessToken,roles,user:values.userName})
@@ -81,7 +58,7 @@ function Login() {
             <h4>Login</h4>
           <form onSubmit={handleSubmit} >
               {errorMess && <section className='errorMessage'>{errorMess}</section>}
-              {inputs.map(input => <Input key={input.id} {...input}
+              {InputElements.map(input => <Input key={input.id} {...input}
                   value={values[input.name]} handleChange={handleChange} />)}
              
               <button type='submit'>Login</button>

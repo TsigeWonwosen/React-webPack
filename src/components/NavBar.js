@@ -12,7 +12,6 @@ export default function NavBar() {
     setToggle(prevToggle => !prevToggle)
     toggle ? navigate('/login') : setAuth({})
   }
-  console.log("Toggle : " + toggle)
   return (
     <div className="nav">
       <div className="logo">Wonde</div>
