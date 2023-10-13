@@ -2,14 +2,14 @@ import React, { useContext, useRef} from 'react'
 import EmployeeContext from '../../context/EmployeeContextProvider'
 import useRefreshToken from '../../hooks/useRefreshToken'
 
-function AddEmployee() {
+function AddEmployee({setShow}) {
   const { handleChange, handleAdd, info } = useContext(EmployeeContext)
   const handleRefresh = useRefreshToken();
   
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
     handleAdd(info)
+    setShow(false)
   }
 
   return (<>

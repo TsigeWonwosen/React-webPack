@@ -1,5 +1,5 @@
-import axios from 'axios';
-const URL = `http://localhost:5000/users`
+import axios from '../../api/axios';
+const URL = `/users`
 
 export const createEmployee = async (info) => {
     try {

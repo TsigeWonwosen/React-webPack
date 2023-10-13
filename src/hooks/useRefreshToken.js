@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 
 const useRefreshToken = () => {
     const { auth, setAuth } = useAuth()
-    const [value, setValue] = useState()
+    const [value, setValue] = useState({refreshToken:""})
 
     const getRefreshToken = async () => {
 
@@ -14,12 +14,11 @@ const useRefreshToken = () => {
             const response = await axios.get('/employees/refresh',{
                 withCredentials: true
             })
-            console.log(">>> " + response)
     
             setValue(prvState => {
-                console.log("Old Refresh Token :" + auth.refreshToken)
-                console.log("Refresh Token : " + response.data)
-                return {...prvState,refreshToken:refreshToken}
+                console.log("Old Refresh Token :" + prvState.refreshToken)
+                console.log("New Refresh Token : " + response.data.accessToken)
+                return {...prvState,refreshToken : response.data.accessToken}
             })
             
             return response?.data
