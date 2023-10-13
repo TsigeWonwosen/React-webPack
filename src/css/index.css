@@ -107,7 +107,7 @@ footer{
   background-color: rgb(87, 87, 155);
   flex-grow: 0;
   padding: 20px;
-  color:rgb(11, 17, 22);
+  color: antiquewhite;
 }
 
 form{
@@ -147,6 +147,13 @@ form button:hover {
  
   background-color: rgb(122, 230, 92);
   color: rgb(255, 255, 255);
+  transition: ease-in;
+}
+
+form button[disabled] {
+ 
+  background-color: rgb(187, 192, 185);
+  color: rgb(248, 242, 242);
   transition: ease-in;
 }
 
